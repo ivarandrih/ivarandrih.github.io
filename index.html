@@ -157,7 +157,7 @@
             <div class="eyebrow">San Francisco Crime Data Analysis, 2003 - 2025</div>
             <h1>Where Crime Concentrates: A Look at Drug Offenses in San Francisco</h1>
             <p class="subtitle">
-                Crime in San Francisco is not evenly distributed. This short data story explores how crime profiles differ across police districts, why drug offenses stand out geographically, and how those patterns persist over time.
+                Crime in San Francisco is not evenly distributed. This short data story explores how crime profiles differ across police districts, why drug offenses stand out geographically especially in the tenderloin district, and how those patterns persist over time.
             </p>
         </div>
     </header>
@@ -171,18 +171,33 @@
                     San Francisco is often discussed as if crime were a single city-wide pattern, but the data shows something more uneven. Different police districts have very different crime profiles, meaning that some crime types occur much more frequently in certain places than would be expected from the city average.
                 </p>
                 <p>
-                    In this analysis, I focus on <strong>drug offenses</strong>. First, I compare how crime types are over- or under-represented across districts. Then I zoom in on drug offenses geographically, and finally I show how that district pattern changes over time.
+                    This analysis focuses on <strong>drug offenses</strong>. It begins by comparing how different types of crime are over- or under-represented across districts. It then takes a closer look at the geographic distribution of drug offenses, before examining how these district-level patterns evolve over time.
                 </p>
             </section>
 
             <section>
                 <h2>1. Crime profiles differ across districts</h2>
                 <p>
-                    The figure below compares crime types across San Francisco police districts using the ratio
-                    <strong>P(crime | district) / P(crime)</strong>. A value of 1 means the crime occurs at the city-wide average. Values above 1 indicate over-representation, while values below 1 indicate under-representation.
+                The figure below compares crime types across San Francisco police districts using the ratio 
+                P(crime | district) / P(crime). This measure allows us to understand how common a given crime 
+                type is within a district relative to its overall frequency across the city. A value of 1 
+                indicates that a crime occurs at the city-wide average, values above 1 indicate that the 
+                crime is over-represented in that district, and values below 1 indicate under-representation.
                 </p>
+
                 <p>
-                    This makes it possible to compare districts fairly, even when they have different total numbers of reported incidents. The chart shows that district crime profiles are not uniform: some offenses cluster strongly in particular districts.
+                This normalization is important because districts differ greatly in their total number of 
+                reported incidents. By adjusting for overall crime frequency, we can make meaningful comparisons 
+                between districts of very different sizes and activity levels. Rather than simply showing where 
+                more crime happens, this approach highlights where specific types of crime are unusually common 
+                or rare.
+                </p>
+
+                <p>
+                The chart reveals that crime profiles are far from uniform across the city. Instead, distinct 
+                patterns emerge: certain crime types cluster strongly within particular districts, while others 
+                are relatively absent. This suggests that crime in San Francisco is shaped by local geographic, 
+                social, and economic factors rather than being evenly distributed across neighborhoods.
                 </p>
 
                 <div class="viz-card">
