@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SF Crime: Two Decades of Data</title>
+    <title>Where Crime Concentrates: Drug Offenses in San Francisco</title>
     <style>
         :root {
             --bg: #1a1a2e;
             --bg-soft: #16213e;
-            --bg-card: rgba(255, 255, 255, 0.04);
+            --card: #0f3460;
             --text: #ffffff;
-            --muted: #b7bfd4;
+            --muted: #c7cede;
             --accent: #16c79a;
-            --accent-dark: #11a37f;
-            --border: rgba(255, 255, 255, 0.08);
-            --shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
-            --radius: 18px;
-            --maxw: 1120px;
+            --border: rgba(255,255,255,0.08);
+            --maxw: 900px;
         }
 
         * {
@@ -29,16 +26,10 @@
 
         body {
             margin: 0;
-            font-family: Inter, Arial, sans-serif;
-            background:
-                radial-gradient(circle at top left, #23315e 0%, transparent 35%),
-                linear-gradient(180deg, #1a1a2e 0%, #111827 100%);
+            font-family: Arial, sans-serif;
+            background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
+            line-height: 1.7;
         }
 
         .container {
@@ -46,384 +37,229 @@
             margin: 0 auto;
         }
 
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(12px);
-            background: rgba(17, 24, 39, 0.72);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-inner {
-            width: min(100% - 32px, var(--maxw));
-            margin: 0 auto;
-            padding: 14px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .brand {
-            font-weight: 700;
-            letter-spacing: 0.2px;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--muted);
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
         .hero {
-            padding: 88px 0 56px;
-        }
-
-        .hero-card {
-            background: linear-gradient(135deg, rgba(22, 33, 62, 0.95), rgba(15, 52, 96, 0.85));
-            border: 1px solid var(--border);
-            border-radius: 28px;
-            padding: 56px 40px;
-            box-shadow: var(--shadow);
+            padding: 72px 0 42px;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
         }
 
         .eyebrow {
-            display: inline-block;
             color: var(--accent);
             font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
+            font-weight: bold;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            letter-spacing: 0.08em;
+            margin-bottom: 14px;
+            display: inline-block;
         }
 
         h1 {
-            margin: 0 0 18px;
-            font-size: clamp(2.4rem, 6vw, 4.4rem);
-            line-height: 1.05;
-            letter-spacing: -0.03em;
-        }
-
-        .hero p {
-            max-width: 760px;
-            color: var(--muted);
-            font-size: 1.08rem;
-            margin: 0 0 28px;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-            margin-top: 24px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 18px;
-            border-radius: 999px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #081018;
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-dark);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.06);
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .section {
-            padding: 26px 0 46px;
-        }
-
-        .section-heading {
-            margin-bottom: 22px;
-        }
-
-        .section-heading h2 {
-            margin: 0 0 8px;
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            letter-spacing: -0.02em;
-        }
-
-        .section-heading p {
-            margin: 0;
-            color: var(--muted);
-            max-width: 760px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            grid-column: span 4;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 22px;
-            box-shadow: var(--shadow);
-            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(22, 199, 154, 0.45);
-            background: rgba(255, 255, 255, 0.06);
-        }
-
-        .card h3 {
-            margin: 0 0 8px;
-            font-size: 1.2rem;
-        }
-
-        .card p {
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            line-height: 1.1;
             margin: 0 0 16px;
+        }
+
+        .subtitle {
+            max-width: 760px;
             color: var(--muted);
-            font-size: 0.98rem;
+            font-size: 1.1rem;
+            margin: 0;
         }
 
-        .card .meta {
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 8px;
+        main {
+            padding: 42px 0 64px;
         }
 
-        .card .actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 16px;
+        section {
+            margin-bottom: 56px;
         }
 
-        .link-btn {
-            display: inline-block;
-            padding: 10px 14px;
-            border-radius: 12px;
-            background: rgba(22, 199, 154, 0.12);
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 700;
-            transition: background 0.2s ease, transform 0.2s ease;
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 14px;
         }
 
-        .link-btn:hover {
-            background: rgba(22, 199, 154, 0.18);
-            transform: translateY(-1px);
+        p {
+            margin: 0 0 18px;
+            color: var(--muted);
         }
 
-        .preview {
-            margin-top: 18px;
-            border-radius: 14px;
-            overflow: hidden;
+        .viz-card {
+            background: var(--bg-soft);
             border: 1px solid var(--border);
-            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 18px;
+            margin: 24px 0 14px;
         }
 
-        .preview img {
+        img {
             width: 100%;
             display: block;
+            border-radius: 12px;
         }
 
-        .about-box {
-            background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 28px;
-            box-shadow: var(--shadow);
+        iframe {
+            width: 100%;
+            height: 620px;
+            border: none;
+            border-radius: 12px;
+            background: #fff;
         }
 
-        .about-box ul {
-            margin: 14px 0 0 20px;
+        .caption {
+            font-size: 0.95rem;
             color: var(--muted);
+            margin-top: 12px;
+        }
+
+        .quote {
+            border-left: 4px solid var(--accent);
+            padding-left: 16px;
+            margin: 20px 0;
+            color: var(--text);
+        }
+
+        ul {
+            color: var(--muted);
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: var(--accent);
         }
 
         .footer {
-            padding: 36px 0 52px;
+            border-top: 1px solid var(--border);
+            padding: 24px 0 48px;
             color: var(--muted);
             font-size: 0.95rem;
         }
 
-        .footer-inner {
-            border-top: 1px solid var(--border);
-            padding-top: 24px;
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        @media (max-width: 900px) {
-            .card {
-                grid-column: span 6;
-            }
-
-            .hero-card {
-                padding: 40px 24px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .nav-inner {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .nav-links {
-                gap: 12px;
-            }
-
-            .card {
-                grid-column: span 12;
-            }
-
+        @media (max-width: 700px) {
             .hero {
-                padding-top: 52px;
+                padding-top: 56px;
             }
 
-            .hero-actions {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .btn {
-                text-align: center;
+            iframe {
+                height: 420px;
             }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="nav-inner">
-            <a class="brand" href="#top">SF Crime Analysis</a>
-            <div class="nav-links">
-                <a href="#projects">Visualizations</a>
-                <a href="#about">About</a>
-                <a href="visualizations/crime_hourly.html">Hourly Chart</a>
-                <a href="visualizations/sf_map.html">Crime Map</a>
-            </div>
+    <header class="hero">
+        <div class="container">
+            <div class="eyebrow">San Francisco Crime Data Analysis, 2003 - 2025</div>
+            <h1>Where Crime Concentrates: A Look at Drug Offenses in San Francisco</h1>
+            <p class="subtitle">
+                Crime in San Francisco is not evenly distributed. This short data story explores how crime profiles differ across police districts, why drug offenses stand out geographically, and how those patterns persist over time.
+            </p>
         </div>
-    </nav>
+    </header>
 
-    <main id="top">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-card">
-                    <span class="eyebrow">Data Story Portfolio</span>
-                    <h1>SF Crime: Two Decades of Data</h1>
-                    <p>
-                        This project explores crime patterns in San Francisco across twenty years of data.
-                        Using static and interactive visualizations, it highlights how crime changes over time, by hour of day, and across city space.
-                    </p>
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="#projects">Explore Visualizations</a>
-                        <a class="btn btn-secondary" href="#about">About the Project</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <main>
+        <div class="container">
 
-        <section class="section" id="projects">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Featured Visualizations</h2>
-                    <p>
-                        A small portfolio of course work combining static analysis, interactive charts, and geographic exploration.
-                    </p>
-                </div>
+            <section>
+                <h2>Introduction</h2>
+                <p>
+                    San Francisco is often discussed as if crime were a single city-wide pattern, but the data shows something more uneven. Different police districts have very different crime profiles, meaning that some crime types occur much more frequently in certain places than would be expected from the city average.
+                </p>
+                <p>
+                    In this analysis, I focus on <strong>drug offenses</strong>. First, I compare how crime types are over- or under-represented across districts. Then I zoom in on drug offenses geographically, and finally I show how that district pattern changes over time.
+                </p>
+            </section>
 
-                <div class="grid">
-                    <article class="card">
-                        <div class="meta">Static Figure</div>
-                        <h3>Yearly Crime Trends</h3>
-                        <p>A high-level view of how crime volume changes across the full time span of the dataset.</p>
-                        <div class="preview">
-                            <img src="images/yearly_trends.png" alt="Yearly crime trends in San Francisco">
-                        </div>
-                    </article>
+            <section>
+                <h2>1. Crime profiles differ across districts</h2>
+                <p>
+                    The figure below compares crime types across San Francisco police districts using the ratio
+                    <strong>P(crime | district) / P(crime)</strong>. A value of 1 means the crime occurs at the city-wide average. Values above 1 indicate over-representation, while values below 1 indicate under-representation.
+                </p>
+                <p>
+                    This makes it possible to compare districts fairly, even when they have different total numbers of reported incidents. The chart shows that district crime profiles are not uniform: some offenses cluster strongly in particular districts.
+                </p>
 
-                    <article class="card">
-                        <div class="meta">Interactive Plotly</div>
-                        <h3>Hourly Crime Patterns</h3>
-                        <p>Explore how crime categories differ across the 24 hours of the day using an interactive chart.</p>
-                        <div class="actions">
-                            <a class="link-btn" href="visualizations/crime_hourly.html">Open full chart</a>
-                        </div>
-                    </article>
-
-                    <article class="card">
-                        <div class="meta">Interactive Map</div>
-                        <h3>Crime Map</h3>
-                        <p>View the geographic distribution of crime incidents across San Francisco in an interactive map.</p>
-                        <div class="actions">
-                            <a class="link-btn" href="visualizations/sf_map.html">Open map</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="about">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>About This Project</h2>
-                    <p>
-                        Built as part of a social data analysis and visualization course, this site brings together multiple formats for exploring the same dataset.
-                    </p>
+                <div class="viz-card">
+                    <img src="images/district_profile_static.png" alt="Crime type over- and under-representation across San Francisco police districts">
                 </div>
 
-                <div class="about-box">
-                    <p>
-                        The goal of the project is not just to show charts, but to design a clear and readable experience for exploring San Francisco crime data.
-                        The site combines:
-                    </p>
-                    <ul>
-                        <li>a static figure for quick overview,</li>
-                        <li>an interactive Plotly chart for temporal exploration,</li>
-                        <li>and a Folium map for geographic context.</li>
-                    </ul>
+                <p class="caption">
+                    <strong>Figure 1.</strong> Crime type over- and under-representation by police district. Values above 1 indicate that a crime occurs more frequently in that district than in the city overall.
+                </p>
+            </section>
+
+            <section>
+                <h2>2. Drug offenses stand out geographically</h2>
+                <p>
+                    Among the crime types in the district profile chart, drug offenses are especially uneven. To make that clearer, the next map focuses only on the district-level ratio for <strong>drug offenses</strong>.
+                </p>
+                <p>
+                    A clear spatial concentration appears: the Tenderloin stands out sharply compared with most other districts. Rather than being spread evenly across San Francisco, drug offenses appear concentrated in a few areas.
+                </p>
+
+                <div class="viz-card">
+                    <iframe src="visualizations/drug_offense_ratio_map.html" title="Drug offense ratio map"></iframe>
                 </div>
-            </div>
-        </section>
+
+                <p class="caption">
+                    <strong>Figure 2.</strong> Geographic distribution of drug offense over- and under-representation across San Francisco police districts. Warmer colors indicate districts where drug offenses occur more frequently than the city-wide average.
+                </p>
+
+                <div class="quote">
+                    The map turns the abstract ratio into something easier to read spatially: some districts are simply much more associated with drug offense reports than others.
+                </div>
+            </section>
+
+            <section>
+                <h2>3. The concentration persists over time</h2>
+                <p>
+                    Geographic concentration alone does not tell us whether the pattern is stable. The interactive chart below adds time, showing how district-level drug offense over-representation changes across years.
+                </p>
+                <p>
+                    By pressing play or moving the slider, the reader can see whether the same districts remain above average or whether the pattern shifts over time. This adds an exploratory layer to the story while still staying focused on the same central question.
+                </p>
+
+                <div class="viz-card">
+                    <iframe src="visualizations/drug_offense_ratio_over_time.html" title="Drug offense ratio over time"></iframe>
+                </div>
+
+                <p class="caption">
+                    <strong>Figure 3.</strong> Drug offense over- and under-representation by district over time. The dashed line at 1 marks the city-wide average.
+                </p>
+            </section>
+
+            <section>
+                <h2>Conclusion</h2>
+                <p>
+                    Taken together, these three figures show that crime in San Francisco is not just uneven in volume, but uneven in <em>type</em>. Districts differ in what crimes are relatively common there, and drug offenses in particular appear concentrated in specific parts of the city.
+                </p>
+                <p>
+                    The Tenderloin stands out both geographically and over time, suggesting that this is not a one-year anomaly but a persistent pattern. At the same time, these figures should be interpreted carefully: reported crime reflects not only underlying behavior, but also policing practices, reporting, and broader social conditions.
+                </p>
+            </section>
+
+            <section>
+                <h2>References</h2>
+                <ul>
+                    <li>San Francisco Open Data. <em>Police Incident Reports dataset.</em></li>
+                    <li>San Francisco Police Department. <em>Crime Data and Public Safety Reports.</em></li>
+                    <li>Richardson, Schultz, Crawford (2019). <em>Dirty Data, Bad Predictions: How Civil Rights Violations Impact Police Data, Predictive Policing Systems, and Justice.</em></li>
+                    <li>Background reporting on drug activity and public safety conditions in the Tenderloin from major local news outlets such as the <em>San Francisco Chronicle</em>.</li>
+                </ul>
+            </section>
+
+        </div>
     </main>
 
     <footer class="footer">
-        <div class="container footer-inner">
-            <div>SF Crime Analysis Portfolio</div>
-            <div>Built with HTML, CSS, Plotly, Folium, and GitHub Pages</div>
+        <div class="container">
+            Built by Ívar Andri using Python, matplotlib, Plotly, Folium, and GitHub Pages.
         </div>
     </footer>
 
