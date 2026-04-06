@@ -168,36 +168,25 @@
             <section>
                 <h2>Introduction</h2>
                 <p>
-                    San Francisco is often discussed as if crime were a single city-wide pattern, but the data shows something more uneven. Different police districts have very different crime profiles, meaning that some crime types occur much more frequently in certain places than would be expected from the city average.
+                    San Francisco is often talked about as if crime follows the same pattern across the whole city, but the data suggests otherwise. In reality, crime is distributed quite unevenly, with different police districts showing very different patterns. Some types of crime happen much more often in certain areas than you would expect based on the city-wide average.
                 </p>
                 <p>
-                    This analysis focuses on <strong>drug offenses</strong>. It begins by comparing how different types of crime are over- or under-represented across districts. It then takes a closer look at the geographic distribution of drug offenses, before examining how these district-level patterns evolve over time.
+                    This analysis focuses specifically on <strong>drug offenses</p>strong>. First, it compares how different types of crime are over- or under-represented across districts. Then, it takes a closer look at where drug offenses are concentrated geographically, and finally, it examines how these patterns change over time within each district.
                 </p>
             </section>
 
             <section>
                 <h2>1. Crime profiles differ across districts</h2>
                 <p>
-                    The figure below compares crime types across San Francisco police districts using the ratio 
-                    P(crime | district) / P(crime). This measure allows us to understand how common a given crime 
-                    type is within a district relative to its overall frequency across the city. A value of 1 
-                    indicates that a crime occurs at the city-wide average, values above 1 indicate that the 
-                    crime is over-represented in that district, and values below 1 indicate under-representation.
+                    The figure below compares different types of crime across police districts in San Francisco using the ratio P(crime | district) / P(crime). This ratio shows how common a specific crime is in a district compared to how common it is across the whole city. A value of 1 means the crime occurs at the city average, values above 1 mean it happens more often than expected in that district, and values below 1 mean it happens less often.
                 </p>
 
                 <p>
-                    This normalization is important because districts differ greatly in their total number of 
-                    reported incidents. By adjusting for overall crime frequency, we can make meaningful comparisons 
-                    between districts of very different sizes and activity levels. Rather than simply showing where 
-                    more crime happens, this approach highlights where specific types of crime are unusually common 
-                    or rare.
+                    This kind of normalization is important because districts vary a lot in how many total crimes they report. Without adjusting for that, it would be hard to fairly compare them. Instead of just showing where the most crime happens, this approach helps highlight where certain types of crime are unusually common or rare.
                 </p>
 
                 <p>
-                    The chart reveals that crime profiles are far from uniform across the city. Instead, distinct 
-                    patterns emerge: certain crime types cluster strongly within particular districts, while others 
-                    are relatively absent. This suggests that crime in San Francisco is shaped by local geographic, 
-                    social, and economic factors rather than being evenly distributed across neighborhoods.
+                    From the chart, it is clear that crime is not evenly distributed across the city. Different districts have very different crime profiles, with some crime types strongly concentrated in specific areas while others are relatively uncommon. This suggests that crime in San Francisco is influenced by local factors like geography, social conditions, and economic differences, rather than being spread evenly across neighborhoods.
                 </p>
 
                 <div class="viz-card">
@@ -212,31 +201,19 @@
             <section>
                 <h2>2. Drug offenses stand out geographically</h2>
                 <p>
-                Among the crime types shown in the district profile chart, drug offenses stand out as 
-                particularly uneven across San Francisco. To highlight this pattern more clearly, the 
-                next map focuses specifically on the district-level ratio 
-                P(drug offense | district) / P(drug offense), allowing us to isolate where drug-related 
-                incidents are unusually common relative to the city-wide average.
+                Among the crime types shown in the district profile chart, drug offenses stand out as especially uneven across San Francisco. To make this clearer, the next map focuses only on drug offenses using the ratio P(drug offense | district) / P(drug offense). This helps show where drug-related incidents are unusually common compared to the city average.
                 </p>
 
                 <p>
-                A strong spatial pattern immediately emerges. The Tenderloin stands out sharply, with 
-                drug offenses occurring at rates far above the city average. In contrast, most other 
-                districts show values at or below 1, indicating that drug-related incidents are less 
-                common relative to the overall distribution of crime in those areas.
+                A clear spatial pattern appears right away. The Tenderloin stands out strongly, with drug offenses happening much more often than expected. In contrast, most other districts are around or below 1, meaning drug-related incidents are less common there relative to the overall crime distribution.
                 </p>
 
                 <p>
-                Rather than being evenly distributed across the city, drug offenses appear highly 
-                concentrated in a small number of locations. This suggests that local factors, such as 
-                population density, housing conditions, policing practices, or the presence of open-air 
-                drug markets, may play a significant role in shaping where these incidents are recorded.
+                So instead of being spread evenly across the city, drug offenses seem to be concentrated in just a few areas. This points to the importance of local factors, like population density, housing conditions, policing strategies, or the presence of open-air drug markets, in shaping where these incidents occur.
                 </p>
 
                 <p>
-                The geographic concentration observed here aligns with widely reported patterns in San 
-                Francisco, where the Tenderloin has long been associated with visible street-level drug 
-                activity.
+                This pattern also matches what is often reported about San Francisco, where the Tenderloin has long been known for visible street-level drug activity.
                 </p>
 
                 <div class="viz-card">
@@ -255,28 +232,19 @@
             <section>
                 <h2>3. The concentration persists over time</h2>
                 <p>
-                Geographic concentration alone does not tell us whether the observed pattern is stable or 
-                temporary. The interactive chart below introduces a temporal dimension, showing how the 
-                district-level over-representation of drug offenses evolves across years.
+                Looking at geography alone doesn not tell us whether this pattern is stable or just temporary. The interactive chart below adds a time dimension by showing how the over-representation of drug offenses in each district changes over the years.
                 </p>
 
                 <p>
-                By pressing play or moving the slider, the reader can track whether the same districts 
-                consistently remain above the city-wide average or whether the pattern shifts over time. 
-                This allows us to distinguish between short-term fluctuations and persistent structural trends.
+                By pressing play or using the slider, you can see whether the same districts stay above the city average or if things shift over time. This helps separate short-term changes from more long-term patterns.
                 </p>
 
                 <p>
-                The visualization suggests that the concentration of drug offenses is not a one-time anomaly, 
-                but rather a recurring pattern. Districts such as the Tenderloin repeatedly appear above 
-                average across multiple years, indicating a sustained concentration rather than a temporary spike.
+                From the visualization, it seems that this is not just a one-time spike. Districts like the Tenderloin show up above average again and again across multiple years, suggesting that the concentration of drug offenses is persistent.
                 </p>
 
                 <p>
-                This persistence strengthens the earlier geographic insight: drug offenses in San Francisco 
-                are not only spatially clustered, but also stable over time. Together, these patterns point 
-                toward deeper underlying dynamics — whether social, economic, or institutional — that shape 
-                how and where these incidents are recorded.
+                This reinforces the earlier observation: drug offenses in San Francisco are not only geographically concentrated, but also relatively stable over time. Together, these patterns suggest that deeper factors, such as social conditions, economic differences, or institutional practices, are influencing where these incidents occur.
                 </p>
 
                 <div class="viz-card">
@@ -291,10 +259,10 @@
             <section>
                 <h2>Conclusion</h2>
                 <p>
-                    Taken together, these three figures show that crime in San Francisco is not just uneven in volume, but uneven in <em>type</em>. Districts differ in what crimes are relatively common there, and drug offenses in particular appear concentrated in specific parts of the city.
+                    This reinforces the earlier observation: drug offenses in San Francisco are not only geographically concentrated, but also relatively stable over time. Together, these patterns suggest that deeper factors, such as social conditions, economic differences, or institutional practices, are influencing where these incidents occur.
                 </p>
                 <p>
-                    The Tenderloin stands out both geographically and over time, suggesting that this is not a one-year anomaly but a persistent pattern. At the same time, these figures should be interpreted carefully: reported crime reflects not only underlying behavior, but also policing practices, reporting, and broader social conditions.
+                    The Tenderloin stands out clearly, both geographically and over time. This suggests that the pattern we see is not just a one-year spike, but something more consistent. At the same time, it is important to be careful with this kind of data. Reported crime does not only reflect what people are doing, it is also influenced by policing practices, reporting behavior, and broader social conditions.
                 </p>
             </section>
 
